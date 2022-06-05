@@ -3,10 +3,10 @@ import Vapor
 
 struct BookController: RouteCollection {
   func boot(routes: RoutesBuilder) throws {
-    let todos = routes.grouped("books")
-    todos.get(use: index)
-    todos.post(use: create)
-    todos.group(":bookID") { book in
+    let books = routes.grouped("books")
+    books.get(use: index)
+    books.post(use: create)
+    books.group(":bookID") { book in
       book.delete(use: delete)
     }
   }
