@@ -19,7 +19,7 @@ final class Author: Model, Content {
 
   init() {}
 
-  init(id: UUID? = nil, name: String) {
+  init(_ id: UUID? = nil, name: String) {
     self.id = id
     self.name = name
   }

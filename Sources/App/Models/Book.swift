@@ -45,8 +45,23 @@ final class Book: Model, Content {
 
   init() {}
 
-  init(id: UUID? = nil, title: String) {
+  init(_ id: UUID? = nil, title: String, pubYear: Int, totalPages: Int) {
     self.id = id
     self.title = title
+    self.pubYear = pubYear
+    self.totalPages = totalPages
+    pagesRead = 0
+    location = 0
+    off = 0
+  }
+
+  init(_ id: UUID? = nil, title: String, pubYear: Int, maxLocation: Int) {
+    self.id = id
+    self.title = title
+    self.pubYear = pubYear
+    self.maxLocation = maxLocation
+    pagesRead = 0
+    location = 0
+    off = 0
   }
 }

@@ -11,8 +11,10 @@ public func configure(_ app: Application) throws {
     database: Environment.get("DATABASE_NAME") ?? "vapor_database"
   ), as: .psql)
 
-  app.migrations.add(CreateAuthor())
-  app.migrations.add(CreateBook())
+  let migrations: [AsyncMigration] = [CreateAuthorMigration(), CreateBookMigration()]
+  migrations.forEach { migration in
+    app.migrations.add(migration)
+  }
 
   try routes(app)
 }
