@@ -43,6 +43,12 @@ final class Book: Model, Content {
   @Parent(key: "author_id")
   var author: Author
 
+  @Parent(key: "creator_id")
+  var creator: User
+
+  @Siblings(through: BookAuthor.self, from: \.$book, to: \.$author)
+  public var authors: [Author]
+
   init() {}
 
   init(_ id: UUID? = nil, title: String, pubYear: Int, totalPages: Int) {

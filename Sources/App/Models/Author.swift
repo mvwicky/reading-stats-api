@@ -17,6 +17,9 @@ final class Author: Model, Content {
   @Field(key: "name")
   var name: String
 
+  @Siblings(through: BookAuthor.self, from: \.$author, to: \.$book)
+  public var books: [Book]
+
   init() {}
 
   init(_ id: UUID? = nil, name: String) {

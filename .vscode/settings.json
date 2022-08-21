@@ -1,0 +1,16 @@
+{
+  // "sourcekit-lsp.serverArguments": ["--log-level", "debug"],
+  // "sourcekit-lsp.trace.server": "messages",
+  "sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp",
+  "shellformat.effectLanguages": [],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.build": true,
+    "**/.swiftpm": true
+  }
+}

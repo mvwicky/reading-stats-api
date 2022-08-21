@@ -7,9 +7,10 @@
 
 import Fluent
 
-struct CreateUserMigration: AsyncMigration {
+struct CreateUserMigration: BaseMigration {
+  static let schemaName: String = "users"
   func prepare(on database: Database) async throws {
-    try await database.schema("users")
+    try await database.schema(Self.schemaName)
       .id()
       .field("email", .string, .required)
       .field("password_hash", .string, .required)
@@ -17,9 +18,5 @@ struct CreateUserMigration: AsyncMigration {
       .field("modified", .datetime)
       .unique(on: "email")
       .create()
-  }
-
-  func revert(on database: Database) async throws {
-    try await database.schema("users").delete()
   }
 }
